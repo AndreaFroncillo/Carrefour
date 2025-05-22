@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+    --carrefour-blue: #0066cc;
+    --carrefour-red: #e31e24;
+    --light-blue: #f0f7ff;
+    --dark-gray: #333;
+    --light-gray: #f8f9fa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-gray);
+    background: linear-gradient(135deg, var(--light-blue) 0%, white 100%);
+}
+
+.presentation {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.slide {
+    background: white;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 102, 204, 0.1);
+    overflow: hidden;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.slide-header {
+    background: linear-gradient(135deg, var(--carrefour-blue) 0%, var(--carrefour-red) 100%);
+    color: white;
+    padding: 20px 30px;
+    position: relative;
+}
+
+.slide-number {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+
+.slide-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.slide-subtitle {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.slide-content {
+    padding: 30px;
+    flex: 1;
+}
+
+.structure-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.page-box {
+    background: var(--light-gray);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid var(--carrefour-blue);
+    margin-bottom: 15px;
+}
+
+.page-title {
+    font-weight: bold;
+    color: var(--carrefour-blue);
+    margin-bottom: 10px;
+}
+
+.seo-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.seo-table th, .seo-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.seo-table th {
+    background-color: var(--carrefour-blue);
+    color: white;
+    font-weight: bold;
+}
+
+.seo-table tr:nth-child(even) {
+    background-color: var(--light-gray);
+}
+
+.url-box {
+    background: #e8f4fd;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: monospace;
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+.tag-box {
+    background: #fff3cd;
+    padding: 8px;
+    border-radius: 5px;
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+.kw-highlight {
+    background: #d4edda;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.internal-link {
+    color: var(--carrefour-red);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.best-practices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.practice-card {
+    background: var(--light-gray);
+    padding: 20px;
+    border-radius: 10px;
+    border-top: 4px solid var(--carrefour-red);
+}
+
+.practice-title {
+    font-weight: bold;
+    color: var(--carrefour-blue);
+    margin-bottom: 10px;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.tech-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.tech-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--carrefour-blue);
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.footer-link {
+    background: var(--carrefour-blue);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+ul, ol {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+.highlight-box {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+    border-left: 4px solid #f39c12;
+}
+
+@media (max-width: 768px) {
+    .structure-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .slide {
+        margin-bottom: 20px;
+    }
+    
+    .slide-content {
+        padding: 20px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <!-- Slide 1: Titolo -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">1/10</div>
+                <div class="slide-title">Piano SEO Festa della Mamma 2025</div>
+                <div class="slide-subtitle">Strategia per massimizzare l'esposizione organica su Carrefour.it</div>
+            </div>
+            <div class="slide-content">
+                <div style="text-align: center; margin-top: 50px;">
+                    <h2 style="color: var(--carrefour-blue); font-size: 2.5rem; margin-bottom: 20px;">🌸 Festa della Mamma 2025</h2>
+                    <p style="font-size: 1.2rem; margin-bottom: 30px;">Strategia SEO completa per la nuova sezione e-commerce</p>
+                    <div style="background: var(--light-gray); padding: 30px; border-radius: 15px;">
+                        <h3 style="color: var(--carrefour-red); margin-bottom: 15px;">Obiettivi Principali</h3>
+                        <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
+                            <li>Massimizzare la visibilità organica per "regali festa della mamma"</li>
+                            <li>Creare una struttura SEO-friendly scalabile</li>
+                            <li>Implementare una strategia di content marketing integrata</li>
+                            <li>Ottimizzare per conversioni e user experience</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Struttura della Sezione -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">2/10</div>
+                <div class="slide-title">Struttura della Sezione</div>
+                <div class="slide-subtitle">Architettura delle pagine e navigazione</div>
+            </div>
+            <div class="slide-content">
+                <div class="structure-grid">
+                    <div>
+                        <h3 style="color: var(--carrefour-blue); margin-bottom: 20px;">Gerarchia delle Pagine</h3>
+                        <div class="page-box">
+                            <div class="page-title">🏠 Pagina Principale</div>
+                            <p>/festa-della-mamma</p>
+                            <small>Hub centrale con overview generale</small>
+                        </div>
+                        <div class="page-box">
+                            <div class="page-title">🎁 Sottocategoria 1</div>
+                            <p>/festa-della-mamma/regali-beauty-benessere</p>
+                            <small>Cosmetici, profumi, cura persona</small>
+                        </div>
+                        <div class="page-box">
+                            <div class="page-title">🏠 Sottocategoria 2</div>
+                            <p>/festa-della-mamma/regali-casa-cucina</p>
+                            <small>Elettrodomestici, decorazioni, utensili</small>
+                        </div>
+                        <div class="page-box">
+                            <div class="page-title">🌸 Sottocategoria 3</div>
+                            <p>/festa-della-mamma/fiori-piante</p>
+                            <small>Composizioni floreali e piante</small>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--carrefour-blue); margin-bottom: 20px;">Caratteristiche Strutturali</h3>
+                        <ul>
+                            <li><strong>Breadcrumb navigation:</strong> Home > Festa della Mamma > [Categoria]</li>
+                            <li><strong>Filtri avanzati:</strong> Prezzo, Brand, Valutazioni, Disponibilità</li>
+                            <li><strong>Ordinamento:</strong> Più venduti, Prezzo, Novità, Valutazioni</li>
+                            <li><strong>Cross-selling:</strong> "Chi ha comprato questo ha comprato anche"</li>
+                            <li><strong>Social proof:</strong> Recensioni e valutazioni clienti</li>
+                            <li><strong>CTA multiple:</strong> "Aggiungi al carrello", "Lista desideri", "Confronta"</li>
+                        </ul>
+                        
+                        <div class="highlight-box">
+                            <strong>📱 Mobile-First Design</strong><br>
+                            Layout ottimizzato per dispositivi mobili con navigazione touch-friendly e velocità di caricamento &lt; 3 secondi
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Elementi SEO Pagina Principale -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">3/10</div>
+                <div class="slide-title">SEO - Pagina Principale</div>
+                <div class="slide-subtitle">Ottimizzazione elementi tecnici pagina madre</div>
+            </div>
+            <div class="slide-content">
+                <table class="seo-table">
+                    <tr>
+                        <th>Elemento SEO</th>
+                        <th>Contenuto Ottimizzato</th>
+                        <th>Note</th>
+                    </tr>
+                    <tr>
+                        <td><strong>URL</strong></td>
+                        <td><div class="url-box">www.carrefour.it/festa-della-mamma</div></td>
+                        <td>URL semantico e pulito</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Title Tag</strong></td>
+                        <td><div class="tag-box">Regali Festa della Mamma 2025 | Idee Regalo per la Mamma | Carrefour</div></td>
+                        <td>60 caratteri, KW principale all'inizio</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Meta Description</strong></td>
+                        <td><div class="tag-box">Scopri i migliori regali per la Festa della Mamma 2025 su Carrefour. Idee regalo beauty, casa, fiori e molto altro. Consegna veloce e prezzi imbattibili! 🌸</div></td>
+                        <td>155 caratteri, CTA e emoji</td>
+                    </tr>
+                    <tr>
+                        <td><strong>H1</strong></td>
+                        <td><div class="tag-box">Regali Festa della Mamma 2025: Idee Speciali per Sorprenderla</div></td>
+                        <td>Include anno e parole chiave primarie</td>
+                    </tr>
+                    <tr>
+                        <td><strong>H2</strong></td>
+                        <td><div class="tag-box">• Le Migliori Idee Regalo per la Mamma<br>• Regali Beauty e Benessere<br>• Regali per la Casa e Cucina<br>• Fiori e Piante per la Festa della Mamma</div></td>
+                        <td>Struttura le sottocategorie</td>
+                    </tr>
+                    <tr>
+                        <td><strong>H3</strong></td>
+                        <td><div class="tag-box">• Regali sotto i 20€<br>• Regali di Lusso<br>• Last Minute Gift Ideas<br>• Consigli per la Scelta</div></td>
+                        <td>Long-tail keywords e segmentazione</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Slide 4: SEO Sottocategorie -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">4/10</div>
+                <div class="slide-title">SEO - Sottocategorie</div>
+                <div class="slide-subtitle">Ottimizzazione pagine secondarie</div>
+            </div>
+            <div class="slide-content">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px;">
+                    <div class="page-box">
+                        <div class="page-title">🎁 Beauty & Benessere</div>
+                        <div class="url-box">www.carrefour.it/festa-della-mamma/regali-beauty-benessere</div>
+                        <p><strong>Title:</strong> Regali Beauty Festa della Mamma | Cosmetici e Profumi | Carrefour</p>
+                        <p><strong>Meta Description:</strong> Regali beauty per la Festa della Mamma: profumi, cosmetici, creme anti-età e set benessere. Scopri le migliori marche su Carrefour! ✨</p>
+                        <p><strong>H1:</strong> Regali Beauty e Benessere per la Festa della Mamma</p>
+                        <p><strong>H2:</strong> Profumi, Cosmetici Premium, Set Skincare, Accessori Beauty</p>
+                    </div>
+                    
+                    <div class="page-box">
+                        <div class="page-title">🏠 Casa & Cucina</div>
+                        <div class="url-box">www.carrefour.it/festa-della-mamma/regali-casa-cucina</div>
+                        <p><strong>Title:</strong> Regali Casa Cucina Festa della Mamma | Elettrodomestici | Carrefour</p>
+                        <p><strong>Meta Description:</strong> Idee regalo per la casa: elettrodomestici, pentole, decorazioni e utensili cucina per la Festa della Mamma. Prezzi speciali su Carrefour! 🏠</p>
+                        <p><strong>H1:</strong> Regali per Casa e Cucina - Festa della Mamma 2025</p>
+                        <p><strong>H2:</strong> Piccoli Elettrodomestici, Pentolame, Decorazioni Casa, Robot Cucina</p>
+                    </div>
+                    
+                    <div class="page-box">
+                        <div class="page-title">🌸 Fiori & Piante</div>
+                        <div class="url-box">www.carrefour.it/festa-della-mamma/fiori-piante</div>
+                        <p><strong>Title:</strong> Fiori Festa della Mamma | Bouquet e Piante Online | Carrefour</p>
+                        <p><strong>Meta Description:</strong> Bouquet freschi e piante per la Festa della Mamma. Consegna in giornata, composizioni floreali uniche. Ordina su Carrefour! 🌹</p>
+                        <p><strong>H1:</strong> Fiori e Piante per la Festa della Mamma</p>
+                        <p><strong>H2:</strong> Bouquet Freschi, Piante da Appartamento, Composizioni Floreali, Vasi Decorativi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Alt Text Immagini -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">5/10</div>
+                <div class="slide-title">Alt Text delle Immagini</div>
+                <div class="slide-subtitle">Ottimizzazione per accessibilità e SEO</div>
+            </div>
+            <div class="slide-content">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                    <div class="practice-card">
+                        <div class="practice-title">🖼️ Pagina Principale</div>
+                        <ul style="font-size: 0.9rem;">
+                            <li><strong>Hero Banner:</strong> "Festa della Mamma 2025 - Regali speciali per sorprenderla su Carrefour"</li>
+                            <li><strong>Categorie:</strong> "Regali beauty festa della mamma - profumi e cosmetici"</li>
+                            <li><strong>Prodotti Featured:</strong> "Set skincare anti-età regalo festa della mamma L'Oreal"</li>
+                            <li><strong>Banner Promo:</strong> "Offerte speciali festa della mamma - sconti fino al 30%"</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="practice-card">
+                        <div class="practice-title">💄 Beauty & Benessere</div>
+                        <ul style="font-size: 0.9rem;">
+                            <li><strong>Prodotti:</strong> "Profumo Chanel N°5 regalo festa della mamma"</li>
+                            <li><strong>Set:</strong> "Cofanetto skincare Nivea anti-età festa della mamma"</li>
+                            <li><strong>Accessori:</strong> "Spazzola pulizia viso elettrica Foreo regalo mamma"</li>
+                            <li><strong>Banner:</strong> "Beauty routine festa della mamma - prodotti premium"</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="practice-card">
+                        <div class="practice-title">🍳 Casa & Cucina</div>
+                        <ul style="font-size: 0.9rem;">
+                            <li><strong>Elettrodomestici:</strong> "Robot cucina Moulinex regalo festa della mamma"</li>
+                            <li><strong>Pentolame:</strong> "Set pentole antiaderenti Tefal regalo mamma chef"</li>
+                            <li><strong>Decorazioni:</strong> "Vaso decorativo ceramica festa della mamma casa"</li>
+                            <li><strong>Piccoli elettrodomestici:</strong> "Macchina caffè Nespresso regalo festa mamma"</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="practice-card">
+                        <div class="practice-title">🌹 Fiori & Piante</div>
+                        <ul style="font-size: 0.9rem;">
+                            <li><strong>Bouquet:</strong> "Bouquet rose rosse fresche festa della mamma consegna"</li>
+                            <li><strong>Piante:</strong> "Orchidea phalaenopsis bianca regalo festa mamma pianta"</li>
+                            <li><strong>Composizioni:</strong> "Composizione floreale mista festa della mamma elegante"</li>
+                            <li><strong>Accessori:</strong> "Vaso ceramica decorato fiori festa della mamma"</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <strong>📋 Best Practices Alt Text:</strong><br>
+                    • Includere keyword principale + "festa della mamma"<br>
+                    • Descrizione precisa del prodotto/servizio<br>
+                    • Massimo 125 caratteri per ottimizzazione<br>
+                    • Evitare "immagine di" o "foto di"
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Testi SEO -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">6/10</div>
+                <div class="slide-title">Testi SEO Ottimizzati</div>
+                <div class="slide-subtitle">Content per ogni pagina della sezione (max 400 caratteri)</div>
+            </div>
+            <div class="slide-content">
+                <div class="page-box">
+                    <div class="page-title">🏠 Pagina Principale</div>
+                    <p>Scopri i migliori <span class="kw-highlight">regali per la festa della mamma 2025</span> su Carrefour! Dalle <span class="kw-highlight">idee regalo beauty</span> ai prodotti per la casa, trova il regalo perfetto per sorprendere la tua mamma. Consegna veloce, prezzi imbattibili e qualità garantita. Naviga le nostre <a href="/festa-della-mamma/regali-beauty-benessere" class="internal-link">collezioni beauty premium</a> o scopri gli elettrodomestici più amati.</p>
+                    <small><strong>Caratteri:</strong> 396/400 | <strong>KW:</strong> regali festa della mamma, idee regalo beauty | <strong>Internal Link:</strong> collezioni beauty</small>
+                </div>
+                
+                <div class="page-box">
+                    <div class="page-title">💄 Beauty & Benessere</div>
+                    <p>Regala bellezza con i migliori <span class="kw-highlight">prodotti beauty festa della mamma</span>. Profumi delle migliori marche, <span class="kw-highlight">cosmetici anti-età</span>, set skincare e accessori per il benessere. Ogni mamma merita di sentirsi speciale! Scopri anche i nostri <a href="/festa-della-mamma/fiori-piante" class="internal-link">bouquet di fiori freschi</a> per completare il regalo perfetto.</p>
+                    <small><strong>Caratteri:</strong> 387/400 | <strong>KW:</strong> prodotti beauty festa della mamma, cosmetici anti-età | <strong>Internal Link:</strong> bouquet fiori</small>
+                </div>
+                
+                <div class="page-box">
+                    <div class="page-title">🏠 Casa & Cucina</div>
+                    <p>Rendi speciale la <span class="kw-highlight">festa della mamma</span> con <span class="kw-highlight">regali per la casa</span> di qualità. Robot da cucina, piccoli elettrodomestici, pentolame professionale e accessori decorativi per chi ama cucinare e prendersi cura della casa. Trova l'ispirazione nei nostri <a href="/festa-della-mamma" class="internal-link">consigli regalo personalizzati</a>.</p>
+                    <small><strong>Caratteri:</strong> 381/400 | <strong>KW:</strong> festa della mamma, regali per la casa | <strong>Internal Link:</strong> consigli regalo</small>
+                </div>
+                
+                <div class="page-box">
+                    <div class="page-title">🌸 Fiori & Piante</div>
+                    <p><span class="kw-highlight">Fiori freschi festa della mamma</span> consegnati a domicilio in giornata. Bouquet di rose, composizioni floreali eleganti, piante da appartamento e orchidee per un regalo che profuma di amore. Combina con i nostri <a href="/festa-della-mamma/regali-beauty-benessere" class="internal-link">prodotti beauty</a> per un pensiero completo e indimenticabile.</p>
+                    <small><strong>Caratteri:</strong> 391/400 | <strong>KW:</strong> fiori freschi festa della mamma | <strong>Internal Link:</strong> prodotti beauty</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Internal Link Footer -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">7/10</div>
+                <div class="slide-title">Internal Link nel Footer</div>
+                <div class="slide-subtitle">Strategia di link interni per authority distribution</div>
+            </div>
+            <div class="slide-content">
+                <h3 style="color: var(--carrefour-blue); margin-bottom: 20px;">Sezione Footer "Occasioni Speciali"</h3>
+                
+                <div class="footer-links">
+                    <a href="/festa-della-mamma" class="footer-link">Festa della Mamma</a>
+                    <a href="/festa-della-mamma/regali-beauty-benessere" class="footer-link">Regali Beauty Mamma</a>
+                    <a href="/festa-della-mamma/regali-casa-cucina" class="footer-link">Regali Casa Cucina</a>
+                    <a href="/festa-della-mamma/fiori-piante" class="footer-link">Fiori per la Mamma</a>
+                    <a href="/offerte-festa-della-mamma" class="footer-link">Offerte Speciali</a>
+                    <a href="/idee-regalo-mamma" class="footer-link">Idee Regalo Mamma</a>
+                </div>
+                
+                <div style="margin-top: 30px;">
+                    <h4 style="color: var(--carrefour-red); margin-bottom: 15px;">Struttura Footer Ottimizzata</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                        <div class="practice-card">
+                            <div class="practice-title">📍 Posizionamento</div>
+                            <p>Sezione dedicata "Occasioni Speciali" nel footer principale, visibile su tutte le pagine del sito</p>
+                        </div>
+                        
+                        <div class="practice-card">
+                            <div class="practice-title">🔗 Anchor Text</div>
+                            <p>Anchor text ricchi di keyword: "Regali Beauty Mamma", "Fiori per la Mamma", "Offerte Festa Mamma"</p>
+                        </div>
+                        
+                        <div class="practice-card">
+                            <div class="practice-title">🎯 Link Juice</div>
+                            <p>Distribuzione dell'authority da homepage e pagine principali verso sezione festa della mamma</p>
+                        </div>
+                        
+                        <div class="practice-card">
+                            <div class="practice-title">📱 Mobile</div>
+                            <p>Footer collassabile su mobile con sezione "Occasioni" facilmente accessibile</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <strong>💡 Strategia Temporale:</strong><br>
+                    I link footer saranno attivati 45 giorni prima della Festa della Mamma e rimarranno attivi fino a 7 giorni dopo l'evento per massimizzare il periodo di visibilità e conversione.
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Articolo Blog -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">8/10</div>
+                <div class="slide-title">Articolo Blog "Vivi di Gusto"</div>
+                <div class="slide-subtitle">Content Marketing per supportare la sezione e-commerce</div>
+            </div>
+            <div class="slide-content">
+                <div class="page-box">
+                    <div class="page-title">📝 Dettagli Articolo</div>
+                    <div class="url-box">www.carrefour.it/blog/10-idee-regalo-festa-della-mamma-2025</div>
+                    <p><strong>Title Tag:</strong> 10 Idee Regalo Festa della Mamma 2025 | Consigli e Tendenze | Carrefour Blog</p>
+                    <p><strong>Meta Description:</strong> Scopri le 10 migliori idee regalo per la Festa della Mamma 2025. Consigli originali, tendenze beauty e casa, budget per ogni esigenza. Leggi i nostri suggerimenti! 💝</p>
+                    <p><strong>H1:</strong> 10 Idee Regalo Originali per la Festa della Mamma 2025</p>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                    <div>
+                        <h4 style="color: var(--carrefour-blue); margin-bottom: 10px;">Struttura Headings</h4>
+                        <ul style="font-size: 0.9rem;">
+                            <li><strong>H2:</strong> Regali Beauty che Fanno la Differenza</li>
+                            <li><strong>H2:</strong> Idee per la Casa e la Cucina</li>
+                            <li><strong>H2:</strong> Il Tocco Floreale che Non Sbaglia Mai</li>
+                            <li><strong>H2:</strong> Regali Personalizzati e Unici</li>
+                            <li><strong>H2:</strong> Budget-Friendly: Regali sotto i 30€</li>
+                            <li><strong>H3:</strong> Come Scegliere il Regalo Perfetto</li>
+                            <li><strong>H3:</strong> Tendenze 2025 per la Festa della Mamma</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: var(--carrefour-blue); margin-bottom: 10px;">Keywords Principali</h4>
+                        <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                            <span class="kw-highlight">idee regalo festa della mamma</span>
+                            <span class="kw-highlight">regali mamma 2025</span>
+                            <span class="kw-highlight">festa della mamma originale</span>
+                            <span class="kw-highlight">regali beauty mamma</span>
+                            <span class="kw-highlight">regali casa cucina</span>
+                            <span class="kw-highlight">fiori festa mamma</span>
+                            <span class="kw-highlight">regalo personalizzato</span>
+                            <span class="kw-highlight">budget regalo mamma</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box" style="margin-top: 20px;">
+                    <strong>🔗 Strategia Internal Linking:</strong><br>
+                    • <span class="internal-link">Scopri la nostra collezione beauty</span> → /festa-della-mamma/regali-beauty-benessere<br>
+                    • <span class="internal-link">Elettrodomestici per la cucina</span> → /festa-della-mamma/regali-casa-cucina<br>
+                    • <span class="internal-link">Bouquet freschi in giornata</span> → /festa-della-mamma/fiori-piante<br>
+                    • <span class="internal-link">Tutti i regali festa della mamma</span> → /festa-della-mamma<br>
+                    • <span class="internal-link">Offerte speciali mamma</span> → /offerte-festa-della-mamma
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Best Practices Post Festa -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">9/10</div>
+                <div class="slide-title">Best Practices Post Festa della Mamma</div>
+                <div class="slide-subtitle">Strategia per mantenere valore SEO dopo l'evento</div>
+            </div>
+            <div class="slide-content">
+                <div class="best-practices">
+                    <div class="practice-card">
+                        <div class="practice-title">🔄 Contenuti Evergreen</div>
+                        <ul>
+                            <li>Trasformare pagine in "Regali per la Mamma" (senza data)</li>
+                            <li>Redirect 301 verso pagine permanenti</li>
+                            <li>Mantenere struttura URL ottimizzata</li>
+                            <li>Aggiornare title e meta per ricerche generiche</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="practice-card">
+                        <div class="practice-title">📊 Analisi Performance</div>
+                        <ul>
+                            <li>Monitoraggio ranking keywords principali</li>
+                            <li>Analisi conversioni per categoria</li>
+                            <li>Studio comportamento utenti (heat maps)</li>
+                            <li>ROI campagne SEO vs Paid</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="practice-card">
+                        <div class="practice-title">🗂️ Archivio Contenuti</div>
+                        <ul>
+                            <li>Spostare contenuti stagionali in sezione archivio</li>
+                            <li>Mantenere internal linking attivo</li>
+                            <li>Creare pagina "Edizioni Precedenti"</li>
+                            <li>Preparare template per Festa Mamma 2026</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="practice-card">
+                        <div class="practice-title">🎯 Riutilizzo Strategico</div>
+                        <ul>
+                            <li>Adattare per "Festa della Donna" (Marzo)</li>
+                            <li>Riutilizzare per "Festa dei Nonni" (Ottobre)</li>
+                            <li>Template per "San Valentino" e altre occasioni</li>
+                            <li>Database prodotti per eventi futuri</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="practice-card">
+                        <div class="practice-title">🔍 SEO Continuo</div>
+                        <ul>
+                            <li>Mantenere monitoraggio posizioni</li>
+                            <li>Aggiornare contenuti con nuovi prodotti</li>
+                            <li>Ottimizzare pagine per ricerche correlate</li>
+                            <li>Link building su contenuti evergreen</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="practice-card">
+                        <div class="practice-title">📈 Pianificazione 2026</div>
+                        <ul>
+                            <li>Analisi gap keywords per miglioramenti</li>
+                            <li>Studio competitor e nuove opportunità</li>
+                            <li>Espansione categorie prodotto</li>
+                            <li>Integrazione AI per personalizzazione</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <strong>⏰ Timeline Post-Evento:</strong><br>
+                    <strong>Settimana 1:</strong> Analisi performance e raccolta dati<br>
+                    <strong>Settimana 2-3:</strong> Implementazione redirect e aggiornamento contenuti<br>
+                    <strong>Mese 1-2:</strong> Ottimizzazione basata su insights e preparazione template<br>
+                    <strong>Mese 3-12:</strong> Monitoraggio continuo e pianificazione prossimo anno
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Elementi Tech e Off-site -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">10/10</div>
+                <div class="slide-title">Elementi Tech e Off-site</div>
+                <div class="slide-subtitle">Ottimizzazioni tecniche e strategie esterne per massimizzare le performance</div>
+            </div>
+            <div class="slide-content">
+                <h3 style="color: var(--carrefour-blue); margin-bottom: 20px;">Ottimizzazioni Tecniche</h3>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-icon">⚡</div>
+                        <h4>Core Web Vitals</h4>
+                        <ul style="text-align: left; font-size: 0.9rem;">
+                            <li>LCP < 2.5s</li>
+                            <li>FID < 100ms</li>
+                            <li>CLS < 0.1</li>
+                            <li>Lazy loading immagini</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-icon">📱</div>
+                        <h4>Mobile Optimization</h4>
+                        <ul style="text-align: left; font-size: 0.9rem;">
+                            <li>AMP per articoli blog</li>
+                            <li>PWA per e-commerce</li>
+                            <li>Touch-friendly navigation</li>
+                            <li>Mobile-first indexing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-icon">🔍</div>
+                        <h4>Schema Markup</h4>
+                        <ul style="text-align: left; font-size: 0.9rem;">
+                            <li>Product schema</li>
+                            <li>Review/Rating schema</li>
+                            <li>Breadcrumb markup</li>
+                            <li>Organization schema</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-card">
+                        <div class="tech-icon">🛡️</div>
+                        <h4>Technical SEO</h4>
+                        <ul style="text-align: left; font-size: 0.9rem;">
+                            <li>XML Sitemap aggiornato</li>
+                            <li>Robot.txt ottimizzato</li>
+                            <li>HTTPS implementato</li>
+                            <li>Canonical tags corretti</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3 style="color: var(--carrefour-blue); margin: 30px 0 20px;">Strategie Off-site</h3>
+                <div class="best-practices">
+                    <div class="practice-card">
+                        <div class="practice-title">🔗 Link Building</div>
+                        <ul>
+                            <li><strong>Guest posting</strong> su blog lifestyle e parenting</li>
+                            <li><strong>Partnership</strong> con influencer mamma-blogger</li>
+                            <li><strong>Digital PR</strong> per comunicati festa della mamma</li>
+                            <li><strong>Resource page</strong> inclusion su siti tematici</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="practice-card">
+                        <div class="practice-title">📱 Social Signals</div>
+                        <ul>
+                            <li><strong>Campagne Instagram</strong> con hashtag #FestaDellaMamma</li>
+                            <li><strong>Pinterest boards</strong> "Idee Regalo Mamma"</li>
+                            <li><strong>Facebook targeting</strong> mamme 35-55 anni</li>
+                            <li><strong>TikTok content</strong> per audience più giovane</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="practice-card">
+                        <div class="practice-title">📊 Local SEO</div>
+                        <ul>
+                            <li><strong>Google My Business</strong> con post evento</li>
+                            <li><strong>Local directories</strong> con menzione sezione</li>
+                            <li><strong>Store locator</strong> integration</li>
+                            <li><strong>Reviews management</strong> per fiducia locale</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="practice-card">
+                        <div class="practice-title">🎯 Content Marketing</div>
+                        <ul>
+                            <li><strong>Video tutorials</strong> "Come scegliere regalo mamma"</li>
+                            <li><strong>Infografiche</strong> trend regali 2025</li>
+                            <li><strong>Email marketing</strong> con contenuti SEO-friendly</li>
+                            <li><strong>Podcast partnerships</strong> su temi famiglia</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <strong>📈 KPI Monitoring:</strong><br>
+                    • <strong>Ranking:</strong> Top 3 per "regali festa della mamma"<br>
+                    • <strong>Traffic:</strong> +150% traffico organico vs periodo precedente<br>
+                    • <strong>Conversions:</strong> CTR organico > 3.5%<br>
+                    • <strong>Authority:</strong> +25% referring domains verso sezione
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
